@@ -3,8 +3,10 @@
 var Mail = require('../models/mailServerModel');
 
 exports.list_all_mail = function(req, res) {
-  console.log(Mail);
-  res.send('NOT IMPLEMENTED: Mail list');
+  console.log("controller");
+  Mail.inboxList(function(response){
+    res.send(response);
+  });
 };
 
 
