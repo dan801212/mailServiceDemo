@@ -1,0 +1,31 @@
+{
+  "name": "mailserverapi",
+  "version": "1.0.0",
+  "description": "RESTful mailServerApi",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dan801212/mailServiceDemo.git"
+  },
+  "keywords": [
+    "RESTful;",
+    "API"
+  ],
+  "author": "Dan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dan801212/mailServiceDemo/issues"
+  },
+  "homepage": "https://github.com/dan801212/mailServiceDemo#readme",
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "mailparser": "^2.0.5"
+  }
+}
