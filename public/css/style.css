@@ -53,3 +53,6 @@ div[data-role="editor-toolbar"] {
 .dropdown-menu a {
     cursor: pointer;
 }
+.testField{
+    border: 2px dotted;
+}

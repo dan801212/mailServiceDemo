@@ -34,28 +34,31 @@
 
 <div class="container-fluid">
     <div class="row ">
-        <div class="col-md-2 column ">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="">E-Mail</a>
+            </li>
+            <li >
+                <a href="index.html">Inbox</a>
+            </li>
+            <!--<li>-->
+            <!--<a href="#">Sent Mails</a>-->
+            <!--</li>-->
+        </ul>
+        <div class="testField">
+            Test Field<br>
+            <button onclick="refreshView()"><span class="glyphicon glyphicon-repeat"></span></button>
+            <button onclick="addTableRow(0)">Test_addrow</button>
+            <button onclick="localFileReader()">read</button>
+            <input type="file" id="file">
+
+        </div>
+        <div class="col-md-3 column">
             <br>
-            <button class="center-block"
+            <button class="center-block btn btn-default"
                     onclick="document.getElementById('compose_on').style.display='block';document.getElementById('compose_off').style.display='block'">
                 Compose
             </button>
-            <br>
-            <ul class="nav nav-stacked nav-pills">
-                <li>
-                    <a href="#">Inbox</a>
-                </li>
-                <li>
-                    <a href="#">Sent Mails</a>
-                </li>
-
-
-            </ul>
-        </div>
-        <div class="col-md-10 column">
-            <button><span class="glyphicon glyphicon-repeat"></span></button>
-            <button onclick="AddTableRow('a','b','c')">Test_addrow</button>
-            <br>
             <br>
             <table id="mail_list" class="table table-hover">
                 <tr>
@@ -64,6 +67,21 @@
                     <td>3</td>
                 </tr>
             </table>
+
+        </div>
+
+        <div class="col-md-9 column">
+            <br>
+            <b>From: </b> <strong id="name_from_view">none</strong><br>
+            To: <span id="name_to_view">none</span><br>
+            Subject: <span id="subject_view">none</span>
+            <br><br>
+
+
+            <p class="text-left" id="mail_body">none</p>
+            <hr>
+            Attachments: <br><br>
+
 
         </div>
         <div id="compose_on" class="white_content">
@@ -167,6 +185,7 @@
         <div id="compose_off" class="black_overlay"></div>
     </div>
 </div>
+<div id="Tshow" class="col-md-12 testField">Test Field<br></div>
 <!--text editor-->
 <script>
     $(function () {
