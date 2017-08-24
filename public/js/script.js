@@ -9,9 +9,15 @@ function addTableRow(jsonNum) {//jsonNum indicates index of email
     NewCell2 = NewRow.insertCell();
     NewCell3 = NewRow.insertCell();
     //alert(jsonData[jsonNum].headers.From);
+    //NewCell1.width = "30%";
+    //NewCell2.width = "40%";
+    //NewCell3.width = "30%";
     NewCell1.innerHTML = "<span onclick='refreshSingleView("+jsonNum+")'>" + jsonData[jsonNum].headers.From + "</sapn>";
     NewCell2.innerHTML = "<span onclick='refreshSingleView("+jsonNum+")'>" + jsonData[jsonNum].headers.Subject + "</span>";
     NewCell3.innerHTML = "<span onclick='refreshSingleView("+jsonNum+")'>" + jsonData[jsonNum].headers.Date + "</span>";
+    //var date = new Date();
+    //date=Date.parse(jsonData[jsonNum].headers.Date);
+    //alert(date.getDay);
 
 }
 function changeOfIllegels(str){
@@ -21,26 +27,32 @@ function changeOfIllegels(str){
 }
 function refreshView(){
     //todo refresh data form server
-
+    //..
+    document.getElementById("mail_list").innerHTML="";
     refreshSingleView(0);
+    for(i=0;i<jsonData.length;i++){
+        addTableRow(i);
+    }
 }
 function refreshSingleView(jsonNum){
 
     document.getElementById("name_from_view").innerHTML = changeOfIllegels(jsonData[jsonNum].headers.From);
     document.getElementById("name_to_view").innerHTML = changeOfIllegels(jsonData[jsonNum].headers.To);
     document.getElementById("subject_view").innerHTML = changeOfIllegels(jsonData[jsonNum].headers.Subject);
-    //todo complete all elements of email relying on given json
+    //todo complete all elements of email relying on given json(#jsonData)
+    //..
 
 }
 function httpRequest(type, data) {
     //type: "GET" "POST" "DELETE" "PUT" "TRACE" "HEAD" "OPTIONS"
+    //todo url
     var url = "";
     if (type == "GET") {
         $.ajax({
             type: type,
             url: url,
             contentType: "application/json",
-            //async: false,
+            async: false,//for updating jsonData
             dataType: "json", //type of return value
             success: function (response) {
 
@@ -62,8 +74,11 @@ function httpRequest(type, data) {
     }
 }
 function localFileReader(){
+    //todo request file from server & replace following local files
+    //..httpRequest("GET","");
+
     var file = document.getElementById("file").files[0];
-    var fileReader = new FileReader();
+     var fileReader = new FileReader();
     var jsonStr="";
     //var json;
     fileReader.readAsText(file);
@@ -76,7 +91,16 @@ function localFileReader(){
 
 
     }
+}
 
+function encapsulatedJson(){
+    var to = document.getElementById("address_compose").value;
+    var subject = document.getElementById("subject_compose").value;
+    var contentHtml = document.getElementById('editor').innerHTML;
+    //todo complete given json
+    //..
+    var json = {
 
-
+    }
+    httpRequest("POST",json);
 }

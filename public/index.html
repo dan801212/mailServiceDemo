@@ -45,15 +45,8 @@
             <!--<a href="#">Sent Mails</a>-->
             <!--</li>-->
         </ul>
-        <div class="testField">
-            Test Field<br>
-            <button onclick="refreshView()"><span class="glyphicon glyphicon-repeat"></span></button>
-            <button onclick="addTableRow(0)">Test_addrow</button>
-            <button onclick="localFileReader()">read</button>
-            <input type="file" id="file">
 
-        </div>
-        <div class="col-md-3 column">
+        <div class="col-md-3 column leftNav">
             <br>
             <button class="center-block btn btn-default"
                     onclick="document.getElementById('compose_on').style.display='block';document.getElementById('compose_off').style.display='block'">
@@ -66,11 +59,22 @@
                     <td>2</td>
                     <td>3</td>
                 </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
             </table>
 
         </div>
 
         <div class="col-md-9 column">
+            <button onclick="refreshView()" class="btn btn-default"><span class="glyphicon glyphicon-repeat"></span></button>
             <br>
             <b>From: </b> <strong id="name_from_view">none</strong><br>
             To: <span id="name_to_view">none</span><br>
@@ -173,6 +177,8 @@
 
             <button onclick="a(document.getElementById('editor').innerHTML)" class="btn btn-default"><span
                     class="glyphicon glyphicon-ok ">Send</span></button>
+            <!--<button onclick="encapsulatedJson()" class="btn btn-default"><span-->
+                    <!--class="glyphicon glyphicon-ok ">Send</span></button>-->
             <script>
                 function a(x) {
                     alert(x);
@@ -184,6 +190,14 @@
         </div>
         <div id="compose_off" class="black_overlay"></div>
     </div>
+</div>
+<div class="testField">
+    Test Field<br>
+
+    <button onclick="addTableRow(0)">Test_addrow</button>
+    <button onclick="localFileReader()">read</button>
+    <input type="file" id="file">
+
 </div>
 <div id="Tshow" class="col-md-12 testField">Test Field<br></div>
 <!--text editor-->
