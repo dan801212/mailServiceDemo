@@ -28,6 +28,6 @@
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
     "node-mbox": "^0.2.1",
-    "mailparser": "^2.0.5"
+    "mailparser": "^0.5.3"
   }
 }
