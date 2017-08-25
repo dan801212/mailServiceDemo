@@ -1,4 +1,5 @@
-{
+[
+    {
         "text": "Hi! All\n\nI am a new user of Portable Thunderbird and I would like to seek help from fellow users, who are more experienced, to solve a problem.\n\nI think I should explain it first. I usually get my mails by POP using Thunderbird installed in my machine (Mine is a Gmail account). But I would like to use Portable Thunderbird at the Cybercafe where I usually surf the Web. According to the instructions given on the Portable Thunderbird website, I copy my profile from my machine into the profile folder of Thunderbird in my USB. At Cybercafe, I use the portable exe to download my mail by POP while surfing at the same time. When I get back to my place, I copy the profile in the USB into my machine again.\n\nThe problem is that the amount of my saved mails are daily growing larger. It is no problem in the machine but a real problem in the USB.\n\nIs there anyway to remove mails saved in the profile of the Portable Thunderbird in my USB, and yet manage to use POP? I needn't keep them there.\n\ncheers!\n\nPDT\n\n",
         "headers": {
             "received": [
@@ -45,6 +46,10 @@
         "to": [
             {
                 "address": "portablethunderbird@mozdev.org",
+                "name": "Portable Thunderbird Mailing List"
+            },
+            {
+                "address": "thunderbird@mozdev.org",
                 "name": "Portable Thunderbird Mailing List"
             }
         ],
@@ -146,3 +151,4 @@
         "date": "2005-03-03T10:17:36.000Z",
         "receivedDate": "2005-03-03T10:22:53.000Z"
     }
+]

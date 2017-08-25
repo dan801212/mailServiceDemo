@@ -3,19 +3,35 @@
 var Mail = require('../models/mailServerModel');
 
 exports.list_all_mail = function(req, res) {
-  console.log("controller");
-  Mail.inboxList(function(response){
+  Mail.inboxList("", "", function(response){
+    res.send(response);
     // console.log(response[0].headers);
+  });
+};
+
+exports.compose_mail = function(req, res) {
+  Mail.composeMail(req.body, function(response){
+    res.send(response);
+  });
+};
+
+exports.inbox_mail_with_id = function(req, res) {
+  Mail.inboxList(req.params.userId, "inbox", function(response){
     res.send(response);
   });
 };
 
 
-exports.create_a_mail = function(req, res) {
-  //TODO
+exports.sent_mail_with_id = function(req, res) {
+  Mail.inboxList(req.params.userId, "sent", function(response){
+    res.send(response);
+  });
+};
+
+exports.delete_mail_with_id = function(req, res) {
+  Mail.deleteList(req.params.userId, "inbox", function(response){
+    res.send(response);
+  });
 };
 
 
-exports.delete_a_mail = function(req, res) {
-  //TODO
-};
