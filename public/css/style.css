@@ -54,11 +54,11 @@ div[data-role="editor-toolbar"] {
     cursor: pointer;
 }
 .testField{
-    display: none;
+    /*display: none;*/
     border: 2px dotted;
 
 }
 .leftNav{
-    border-right: solid 3px #d3d3d3;
+    border-right: solid 3px #e7e7e7;
 ;
 }
