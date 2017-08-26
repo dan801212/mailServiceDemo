@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Smart Mail</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="css/dashboard.css" rel="stylesheet">
+    <link href="css/block.css" rel="stylesheet">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/function.js"> </script>
+    
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html">Smart Mail</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="index.html">Inbox </a></li>
+            <li><a href="parking.html">Sent</a></li>
+            <li><a href="map.html">Trash</a></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">Mail Information</h1>
+          <!-- <div id="loader"></div> -->
+          
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <input type="checkbox" aria-label="...">
+                </span>
+                <span class="input-group-addon">
+                  From:
+                </span>
+                <input type="text" class="form-control" aria-label="..." placeholder="Filter by sender">
+              </div><!-- /input-group -->
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <input type="checkbox" aria-label="...">
+                </span>
+                <span class="input-group-addon">
+                  To:
+                </span>
+                <input type="text" class="form-control" aria-label="..." placeholder="Filter by receipent">
+              </div><!-- /input-group -->
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <input type="checkbox" aria-label="...">
+                </span>
+                <span class="input-group-addon">
+                  Subject:
+                </span>
+                <input type="text" class="form-control" aria-label="what" placeholder="Search for subject">
+              </div><!-- /input-group -->
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <input type="checkbox" aria-label="...">
+                </span>
+                <span class="input-group-addon">
+                  Content:
+                </span>
+                <input type="text" class="form-control" aria-label="..." placeholder="Search for content">
+              </div><!-- /input-group -->
+            </div><!-- /.col-lg-6 -->
+          </div><!-- /.row -->
+          <button type="button" class="btn btn-primary btn-lg">Search</button>
+          <div id="panelDiv">
+            <div class="panel panel-info panel-custom">
+              <div class="panel-heading">
+                Subject
+              </div>
+              <div class="panel-body">
+                <p>From<br>
+                To<br>
+                Date<br>
+                Text</p>
+              </div>
+            </div>
+
+            <div class="panel panel-info panel-custom">
+              <div class="panel-heading">
+                Subject
+              </div>
+              <div class="panel-body">
+                <p>From<br>
+                To<br>
+                Date<br>
+                Text</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+   <script>
+     $(document).ready(function(){
+        
+        // updateBlockInfo()
+
+        // window.setInterval(function(){
+        //   updateBlockInfo()
+        // }, 10000);
+
+      });
+  </script> 
+
+
+  </body>
+</html>
