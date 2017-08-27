@@ -10,6 +10,7 @@ var MailList = function(){};
 
 
 MailList.prototype.inboxList = function (query, callback) {
+	console.log(query);
 	var handle = fs.createReadStream(__dirname + '/../../asset/inbox.mbox');
 	var messages = [];
 	var messageTotal = 0;
@@ -54,7 +55,7 @@ MailList.prototype.inboxList = function (query, callback) {
 	  	messageCount++;
 	  	if (messageCount===messageTotal) {
 	  		console.log('Number of mail after filter: ' + messages.length);
-	  		console.log(messages);
+	  		// console.log(messages);
 	  		return callback(messages);
 	  	}
 	  });

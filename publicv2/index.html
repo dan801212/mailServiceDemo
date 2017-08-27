@@ -42,8 +42,6 @@
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li class="active"><a href="index.html">Inbox </a></li>
-            <li><a href="parking.html">Sent</a></li>
-            <li><a href="map.html">Trash</a></li>
           </ul>
         </div>
 
@@ -53,45 +51,56 @@
           
           <div class="row">
             <div class="col-lg-6">
+
               <div class="input-group">
                 <span class="input-group-addon">
-                  <input type="checkbox" aria-label="...">
+                  <input type="checkbox" id="folderCheckbox">
+                </span>
+                <span class="input-group-addon">
+                  Folder:
+                </span>
+                <input type="text" class="form-control" id="folderText" placeholder="default: inbox">
+              </div><!-- /input-group -->
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <input type="checkbox" id="fromCheckbox">
                 </span>
                 <span class="input-group-addon">
                   From:
                 </span>
-                <input type="text" class="form-control" aria-label="..." placeholder="Filter by sender">
+                <input type="text" class="form-control" id="fromText" placeholder="Filter by sender">
               </div><!-- /input-group -->
               <div class="input-group">
                 <span class="input-group-addon">
-                  <input type="checkbox" aria-label="...">
+                  <input type="checkbox" id="toCheckbox">
                 </span>
                 <span class="input-group-addon">
                   To:
                 </span>
-                <input type="text" class="form-control" aria-label="..." placeholder="Filter by receipent">
+                <input type="text" class="form-control" id="toText" placeholder="Filter by receipent">
               </div><!-- /input-group -->
               <div class="input-group">
                 <span class="input-group-addon">
-                  <input type="checkbox" aria-label="...">
+                  <input type="checkbox" id="subjectCheckbox">
                 </span>
                 <span class="input-group-addon">
                   Subject:
                 </span>
-                <input type="text" class="form-control" aria-label="what" placeholder="Search for subject">
+                <input type="text" class="form-control" id="subjectText" placeholder="Search for subject">
               </div><!-- /input-group -->
               <div class="input-group">
                 <span class="input-group-addon">
-                  <input type="checkbox" aria-label="...">
+                  <input type="checkbox" id="contentCheckbox">
                 </span>
                 <span class="input-group-addon">
                   Content:
                 </span>
-                <input type="text" class="form-control" aria-label="..." placeholder="Search for content">
+                <input type="text" class="form-control" id="contentText" placeholder="Search for content">
               </div><!-- /input-group -->
             </div><!-- /.col-lg-6 -->
           </div><!-- /.row -->
-          <button type="button" class="btn btn-primary btn-lg">Search</button>
+          <button type="button" class="btn btn-primary btn-lg" id="searchBtn">Search</button>
+          
           <div id="panelDiv">
             <div class="panel panel-info panel-custom">
               <div class="panel-heading">
@@ -124,13 +133,10 @@
 
    <script>
      $(document).ready(function(){
-        
-        // updateBlockInfo()
-
-        // window.setInterval(function(){
-        //   updateBlockInfo()
-        // }, 10000);
-
+        getMail("");
+        $("#searchBtn").click(function(){
+          getMail("");
+        }); 
       });
   </script> 
 
