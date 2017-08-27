@@ -155,11 +155,7 @@
         });  
 
         $("#slider").dateRangeSlider(
-        // {
-        // defaultValues:{
-        //   min: new Date(2012, 0, 1),
-        //   max: new Date(2017,1,3)
-        // }}
+
         );
 
         $("#slider").dateRangeSlider(
@@ -171,6 +167,16 @@
           }
           }
         );
+
+        $("#slider").dateRangeSlider("values", new Date(2000, 0, 1), new Date());
+
+
+        $("#slider").bind("valuesChanged", function(e, data){
+          filter(data.values.min, data.values.max);
+
+          console.log("Something moved. min: " + data.values.min + " max: " + data.values.max);
+
+        });
 
       });
   </script> 

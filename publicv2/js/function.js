@@ -1,5 +1,6 @@
 var LOCALHOST = "http://localhost:3000/inboxMail"
 var messages;
+var temp_messages;
 
 function getMail(){
 	var url = buildURL();
@@ -10,8 +11,9 @@ function getMail(){
 		contentType: "application/json",
 		dataType: "json",
 		success: function (response) {
-			// console.log(response[0]);
+			console.log(response[3].date);
 			showMailBlock(response);
+
 		},
 		error: function(response) {
 			console.log(response);
@@ -55,10 +57,14 @@ function showMailBlock(allMailData){
 
 	if(allMailData.length > 0){
 		messages = allMailData;
+		temp_messages = allMailData;
+		var dateSliderMin = $("#slider").dateRangeSlider("min");
+		var dateSliderMax = $("#slider").dateRangeSlider("max");
+		filter(dateSliderMin, dateSliderMax);
 
-		$.each(allMailData, function(index, value) {
-	    	createBlock(value);
-		}); 
+		// $.each(allMailData, function(index, value) {
+	 //    	createBlock(value);
+		// }); 
 	}
 }
 
@@ -79,7 +85,11 @@ function createBlock(mailData){
 }
 
 function changeOrder(order){
-	var sortedMail = sortMailOrder(messages, order);
+	var sortedMail = temp_messages;
+	if(order !== ""){
+		console.log("change order");
+		sortedMail = sortMailOrder(temp_messages, order);
+	}
 
 	var panelDiv = document.getElementById("panelDiv");
 	panelDiv.innerHTML = "";
@@ -97,6 +107,15 @@ function sortMailOrder(data,order){
         data.sort(function(a,b){return (Date.parse(b.headers.date)-Date.parse(a.headers.date))});
     }
     return data;
+}
+
+function filter(min,max){
+
+	temp_messages = messages.filter(function a(value){
+			return (Date.parse(value.date)>=Date.parse(min) &&Date.parse(value.date) <= Date.parse(max));
+		}
+	);
+	changeOrder("");
 }
 
 
