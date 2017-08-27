@@ -20,7 +20,7 @@ function getMail(){
 }
 
 function buildURL(){
-	var url = "?";
+	var url = "";
 	if(document.getElementById("folderCheckbox").checked){
 		if(document.getElementById("folderText").value.length > 0)
 			url += "folder=" + document.getElementById("folderText").value + "&";
@@ -41,9 +41,10 @@ function buildURL(){
 		if(document.getElementById("contentText").value.length > 0)
 			url += "content=" + document.getElementById("contentText").value + "&";
 	}
-
-	
-	console.log(url);
+	if(url.length > 0){
+		url = "?" + url;
+	}
+	// console.log(url);
 	return url;
 }
 
@@ -61,7 +62,7 @@ function showMailBlock(allMailData){
 function createBlock(mailData){
 	var panelDiv = document.getElementById("panelDiv")
 	var html = panelDiv.innerHTML;
-	html += '<div class="panel panel-info panel-custom"><div class="panel-heading">'+mailData.subject+ '</div><div class="panel-body">';
+	html += '<div class="panel panel-info panel-custom"><div class="panel-heading"><b>'+mailData.subject+ '</b></div><div class="panel-body">';
 
 	html += "<p>";
 	html += "<b>From: " + mailData.from[0].address + "</b><br>";
@@ -73,3 +74,5 @@ function createBlock(mailData){
 	html += "</div></div>";
 	panelDiv.innerHTML = html;
 }
+
+
