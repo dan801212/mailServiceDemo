@@ -104,8 +104,9 @@
                 
               <h3>Time filter: </h3>
               <div class="btn-group" role="group" id="order">
-                <button type="button" class="btn btn-default">Desc</button>
-                <button type="button" class="btn btn-default">Asce</button>
+                <button type="button" class="btn btn-default" id="desBtn">Desc</button>
+                <button type="button" class="btn btn-default" id="ascBtn">Asce</button>
+                <span><input style="display:none;"" type="text" id="orderText"></span>
               </div>
               <div id="slider"></div>
               <br>
@@ -143,6 +144,14 @@
         
         $("#searchBtn").click(function(){
           getMail();
+        });  
+
+        $("#desBtn").click(function(){
+          changeOrder("des");
+        });  
+
+        $("#ascBtn").click(function(){
+          changeOrder("asc");
         });  
 
         $("#slider").dateRangeSlider(

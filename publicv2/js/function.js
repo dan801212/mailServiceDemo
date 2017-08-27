@@ -1,5 +1,5 @@
 var LOCALHOST = "http://localhost:3000/inboxMail"
-
+var messages;
 
 function getMail(){
 	var url = buildURL();
@@ -49,14 +49,37 @@ function buildURL(){
 }
 
 function showMailBlock(allMailData){
+	messages = allMailData;
+	// var sortedMail = sortMailOrder(allMailData, order);
 	//clear block view
-	var panelDiv = document.getElementById("panelDiv")
+	var panelDiv = document.getElementById("panelDiv");
 	panelDiv.innerHTML = "";
 
 	$.each(allMailData, function(index, value) {
     	createBlock(value);
 	}); 
 
+}
+
+function changeOrder(order){
+	var sortedMail = sortMailOrder(messages, order);
+
+	var panelDiv = document.getElementById("panelDiv");
+	panelDiv.innerHTML = "";
+
+	$.each(sortedMail, function(index, value) {
+    	createBlock(value);
+	}); 
+}
+
+function sortMailOrder(data,order){
+    if(order==="asc"){//ascend
+        data.sort(function(a,b){return (Date.parse(a.headers.date)-Date.parse(b.headers.date))});
+    }
+    else{//descend
+        data.sort(function(a,b){return (Date.parse(b.headers.date)-Date.parse(a.headers.date))});
+    }
+    return data;
 }
 
 function createBlock(mailData){
