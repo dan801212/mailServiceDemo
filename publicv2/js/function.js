@@ -49,16 +49,33 @@ function buildURL(){
 }
 
 function showMailBlock(allMailData){
-	messages = allMailData;
-	// var sortedMail = sortMailOrder(allMailData, order);
 	//clear block view
 	var panelDiv = document.getElementById("panelDiv");
 	panelDiv.innerHTML = "";
 
-	$.each(allMailData, function(index, value) {
-    	createBlock(value);
-	}); 
+	if(allMailData.length > 0){
+		messages = allMailData;
 
+		$.each(allMailData, function(index, value) {
+	    	createBlock(value);
+		}); 
+	}
+}
+
+function createBlock(mailData){
+	var panelDiv = document.getElementById("panelDiv")
+	var html = panelDiv.innerHTML;
+	html += '<div class="panel panel-info panel-custom"><div class="panel-heading"><b>'+mailData.subject+ '</b></div><div class="panel-body">';
+
+	html += "<p>";
+	html += "<b>From: " + mailData.from[0].address + "</b><br>";
+	html += "To: " + mailData.to[0].address + "<br>";
+	html += mailData.date + "<br><br>";
+	html += mailData.text + "<br>";
+	html += "</p>";
+	
+	html += "</div></div>";
+	panelDiv.innerHTML = html;
 }
 
 function changeOrder(order){
@@ -82,20 +99,5 @@ function sortMailOrder(data,order){
     return data;
 }
 
-function createBlock(mailData){
-	var panelDiv = document.getElementById("panelDiv")
-	var html = panelDiv.innerHTML;
-	html += '<div class="panel panel-info panel-custom"><div class="panel-heading"><b>'+mailData.subject+ '</b></div><div class="panel-body">';
-
-	html += "<p>";
-	html += "<b>From: " + mailData.from[0].address + "</b><br>";
-	html += "To: " + mailData.to[0].address + "<br>";
-	html += mailData.date + "<br><br>";
-	html += mailData.text + "<br>";
-	html += "</p>";
-	
-	html += "</div></div>";
-	panelDiv.innerHTML = html;
-}
 
 

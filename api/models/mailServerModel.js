@@ -10,15 +10,20 @@ var MailList = function(){};
 
 
 MailList.prototype.inboxList = function (query, callback) {
-	console.log(query);
+	// console.log(query);
 	var handle = fs.createReadStream(__dirname + '/../../asset/inbox.mbox');
 	var messages = [];
 	var messageTotal = 0;
 	var messageCount = 0;
 	var mbox = new Mbox();
 
+
 	if(query.folder){
 		handle = fs.createReadStream(__dirname + '/../../asset/' + query.folder + '.mbox');
+		handle.on('error', function(err){ 
+			return callback(messages); 
+		});
+
 	}
 
 	mbox.on('message', function(msg) {
@@ -54,7 +59,7 @@ MailList.prototype.inboxList = function (query, callback) {
 
 	  	messageCount++;
 	  	if (messageCount===messageTotal) {
-	  		console.log('Number of mail after filter: ' + messages.length);
+	  		// console.log('Number of mail after filter: ' + messages.length);
 	  		// console.log(messages);
 	  		return callback(messages);
 	  	}
@@ -64,7 +69,7 @@ MailList.prototype.inboxList = function (query, callback) {
 	});
 
 	mbox.on('end', function(parsedCount) {
-		console.log('Total mail: ' + parsedCount);
+		// console.log('Total mail: ' + parsedCount);
 		messageTotal = parsedCount;
 	});
 
