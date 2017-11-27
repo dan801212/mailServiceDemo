@@ -11,7 +11,7 @@ function getMail(){
 		contentType: "application/json",
 		dataType: "json",
 		success: function (response) {
-			console.log(response[3].date);
+			// console.log(response[3].date);
 			showMailBlock(response);
 
 		},
